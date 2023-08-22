@@ -27,12 +27,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
 
     private Connection getConnection() throws SQLException {
 
-        Connection connect = DriverManager.getConnection (
-                Config.getProperty(Config.DB_URL),
-                Config.getProperty(Config.DB_LOGIN),
-                Config.getProperty(Config.DB_PASSWORD));
-        return connect;
-
+        return ConnectionBuilder.getConnection();
     }
 
     public List<Street> findStreets(String pattern) throws DaoException {
