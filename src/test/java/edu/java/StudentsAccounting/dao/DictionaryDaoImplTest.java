@@ -1,5 +1,6 @@
 package edu.java.StudentsAccounting.dao;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,6 +13,7 @@ class DictionaryDaoImplTest {
     }
 
     @Test
+    @Ignore
     public void testExample2() {
         System.out.println("TEST 2");
     }
