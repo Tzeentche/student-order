@@ -23,6 +23,7 @@ edu\java\StudentsAccounting\domain\register\AnswerCityRegisterItem.class
 edu\java\StudentsAccounting\dao\StudentOrderDao.class
 edu\java\StudentsAccounting\domain\AnswerStudent.class
 edu\java\StudentsAccounting\dao\DictionaryDaoImpl.class
+edu\java\StudentsAccounting\dao\ConnectionBuilder.class
 edu\java\StudentsAccounting\domain\RegisterOffice.class
 edu\java\StudentsAccounting\domain\University.class
 edu\java\StudentsAccounting\domain\Person.class
