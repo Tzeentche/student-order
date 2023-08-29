@@ -1,7 +1,9 @@
 package edu.java.StudentsAccounting;
 
+import edu.java.StudentsAccounting.dao.StudentOrderDaoImpl;
 import edu.java.StudentsAccounting.domain.*;
 import edu.java.StudentsAccounting.domain.register.AnswerCityRegister;
+import edu.java.StudentsAccounting.exception.DaoException;
 import edu.java.StudentsAccounting.mail.MailSender;
 import edu.java.StudentsAccounting.validator.*;
 
@@ -24,13 +26,13 @@ public class StudentOrderValidator {
         mailSender = new MailSender();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DaoException {
 
         StudentOrderValidator sov = new StudentOrderValidator();
         sov.checkAll();
     }
 
-    public void checkAll() {
+    public void checkAll() throws DaoException {
         List<StudentOrder> soList = readStudentOrders();
 
         for (StudentOrder so : soList) {
@@ -38,15 +40,8 @@ public class StudentOrderValidator {
         }
     }
 
-    public List<StudentOrder> readStudentOrders() {
-        List<StudentOrder> soList = new LinkedList<>();
-
-        for (int i = 0; i < 5; i++) {
-//            StudentOrder so = SaveStudentOrder.buildStudentOrder(i);
-//            soList.add(so);
-        }
-
-        return soList;
+    public List<StudentOrder> readStudentOrders() throws DaoException {
+        return new StudentOrderDaoImpl().getStudentOrders();
     }
 
     public void checkOneOrder(StudentOrder so) {

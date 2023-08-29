@@ -9,14 +9,14 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DBInit {
 
+public class DBInit
+{
     public static void startUp() throws Exception {
         URL url1 = DictionaryDaoImplTest.class.getClassLoader()
-                .getResource("/student_project.sql");
+                .getResource("student_project.sql");
         URL url2 = DictionaryDaoImplTest.class.getClassLoader()
                 .getResource("student_data.sql");
-
 
         List<String> str1 = Files.readAllLines(Paths.get(url1.toURI()));
         String sql1 = str1.stream().collect(Collectors.joining());
@@ -25,12 +25,10 @@ public class DBInit {
         String sql2 = str2.stream().collect(Collectors.joining());
 
         try (Connection con = ConnectionBuilder.getConnection();
-             Statement stmt = con.createStatement();) {
-
+             Statement stmt = con.createStatement();
+        ) {
             stmt.executeUpdate(sql1);
             stmt.executeUpdate(sql2);
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 }
