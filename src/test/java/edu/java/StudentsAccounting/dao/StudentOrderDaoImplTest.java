@@ -2,6 +2,7 @@ package edu.java.StudentsAccounting.dao;
 
 import edu.java.StudentsAccounting.domain.*;
 import edu.java.StudentsAccounting.exception.DaoException;
+
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -17,7 +18,7 @@ public class StudentOrderDaoImplTest
     public static void startUp() throws Exception {
         DBInit.startUp();
     }
-
+  
     @Test
     public void saveStudentOrder() throws DaoException {
         StudentOrder so = buildStudentOrder(10);
@@ -39,6 +40,7 @@ public class StudentOrderDaoImplTest
     public StudentOrder buildStudentOrder(long id) {
         StudentOrder so = new StudentOrder();
         so.setStudentOrderId(id);
+
         so.setMarriageCertificateId("" + (123456000 + id));
         so.setMarriageDate(LocalDate.of(2016, 7, 4));
 
@@ -57,6 +59,7 @@ public class StudentOrderDaoImplTest
         PassportOffice po1 = new PassportOffice(1L, "", "");
         husband.setIssueDepartment(po1);
         husband.setStudentId("" + (100000 + id));
+
         husband.setAddress(address);
         husband.setUniversity(new University(2L, ""));
         husband.setStudentId("HH12345");
@@ -95,5 +98,5 @@ public class StudentOrderDaoImplTest
 
         return so;
     }
-
 }
+
