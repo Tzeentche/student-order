@@ -7,6 +7,7 @@ import org.junit.Test;
 import edu.java.StudentsAccounting.domain.Street;
 import edu.java.StudentsAccounting.exception.DaoException;
 import org.junit.*;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -17,9 +18,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 public class DictionaryDaoImplTest {
+
+    public static final Logger logger = (Logger) LoggerFactory.getLogger(DictionaryDaoImplTest.class);
 
     @BeforeClass
     public static void startUp() throws Exception {
@@ -28,6 +32,7 @@ public class DictionaryDaoImplTest {
 
     @Test
     public void testStreet() throws DaoException {
+        logger.info("TEST");
         List<Street> d = new DictionaryDaoImpl().findStreets("pro");
         Assert.assertTrue(d.size() == 2);
     }
