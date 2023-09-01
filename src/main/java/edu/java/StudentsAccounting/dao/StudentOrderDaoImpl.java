@@ -3,6 +3,7 @@ package edu.java.StudentsAccounting.dao;
 import edu.java.StudentsAccounting.config.Config;
 import edu.java.StudentsAccounting.domain.*;
 import edu.java.StudentsAccounting.exception.DaoException;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -11,10 +12,14 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class StudentOrderDaoImpl implements StudentOrderDao
-{
+public class StudentOrderDaoImpl implements StudentOrderDao {
+
+    private static final Logger logger = (Logger) LoggerFactory.getLogger(StudentOrderDaoImpl.class);
+
     private static final String INSERT_ORDER =
             "INSERT INTO jc_student_order(" +
                     " student_order_status, student_order_date, h_sur_name, " +
@@ -121,6 +126,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao
             }
 
         } catch (SQLException ex) {
+            logger.info((Supplier<String>) ex);
             throw new DaoException(ex);
         }
 
@@ -211,6 +217,7 @@ public class StudentOrderDaoImpl implements StudentOrderDao
 
             rs.close();
         } catch(SQLException ex) {
+            logger.info((Supplier<String>) ex);
             throw new DaoException(ex);
         }
 
