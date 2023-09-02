@@ -96,4 +96,19 @@ public class StudentOrder {
     public void setWife(Adult wife) {
         this.wife = wife;
     }
+
+    @Override
+    public String toString() {
+        return "StudentOrder{" +
+                "studentOrderId=" + studentOrderId +
+                ", studentOrderStatus=" + studentOrderStatus +
+                ", studentOrderDate=" + studentOrderDate +
+                ", husband=" + husband +
+                ", wife=" + wife +
+                ", children=" + children +
+                ", marriageCertificateId='" + marriageCertificateId + '\'' +
+                ", marriageOffice=" + marriageOffice +
+                ", marriageDate=" + marriageDate +
+                '}';
+    }
 }

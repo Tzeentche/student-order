@@ -28,4 +28,12 @@ public class Street {
 
     public Street() {
     }
+
+    @Override
+    public String toString() {
+        return "Street{" +
+                "StreetCode=" + StreetCode +
+                ", streetName='" + streetName + '\'' +
+                '}';
+    }
 }
